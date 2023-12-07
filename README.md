@@ -27,19 +27,21 @@ The input time series data should be an array of objects, where each object repr
 Example Input Format:
 
 ```json
-/*
+
 [
   { "lat": 19.0760, "lng": 72.8777, "timestamp": "2023-01-01T12:00:00.000Z" },
   { "lat": 19.0820, "lng": 72.8920, "timestamp": "2023-01-01T12:00:05.000Z" },
   { "lat": 19.0875, "lng": 72.8955, "timestamp": "2023-01-01T12:00:10.000Z" },
   // ... (additional data points)
 ]
-*/
+```
 
 Multiple Paths
 
 If the user wants to provide multiple arrays as input, they should be separated by a semicolon (;). Each array should still follow the same format as described above.
-/*
+
+```json
+
 [
   { "lat": 19.0760, "lng": 72.8777, "timestamp": "2023-01-01T12:00:00.000Z" },
   { "lat": 19.0820, "lng": 72.8920, "timestamp": "2023-01-01T12:00:05.000Z" },
@@ -49,6 +51,6 @@ If the user wants to provide multiple arrays as input, they should be separated 
   { "lat": 20.4567, "lng": 74.9876, "timestamp": "2023-01-01T12:02:15.000Z" },
   // ... (additional data points)
 ]
-*/
+```
 
 A paths.txt file is kept in src/assets for reference.
