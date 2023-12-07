@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# React Drone Simulator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app simulates the drone motion on Google Maps based on user-provided information.
 
-## Available Scripts
+## Installation
+1. Clone the repository
 
-In the project directory, you can run:
+2. Navigate to the project directory
 
-### `npm start`
+3. Install dependencies: npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Starting the development server
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npm start
 
-### `npm test`
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Google Maps API Key
 
-### `npm run build`
+Add your google maps API key to the .env file present in the source directory
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Input Format
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The input time series data should be an array of objects, where each object represents a data point with latitude (`lat`), longitude (`lng`), and timestamp (`timestamp`). The timestamp should follow the ISO 8601 format with milliseconds in UTC.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Example Input Format:
 
-### `npm run eject`
+```json
+/*
+[
+  { "lat": 19.0760, "lng": 72.8777, "timestamp": "2023-01-01T12:00:00.000Z" },
+  { "lat": 19.0820, "lng": 72.8920, "timestamp": "2023-01-01T12:00:05.000Z" },
+  { "lat": 19.0875, "lng": 72.8955, "timestamp": "2023-01-01T12:00:10.000Z" },
+  // ... (additional data points)
+]
+*/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Multiple Paths
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If the user wants to provide multiple arrays as input, they should be separated by a semicolon (;). Each array should still follow the same format as described above.
+/*
+[
+  { "lat": 19.0760, "lng": 72.8777, "timestamp": "2023-01-01T12:00:00.000Z" },
+  { "lat": 19.0820, "lng": 72.8920, "timestamp": "2023-01-01T12:00:05.000Z" },
+  // ... (additional data points)
+];[
+  { "lat": 20.1234, "lng": 74.5678, "timestamp": "2023-01-01T12:02:00.000Z" },
+  { "lat": 20.4567, "lng": 74.9876, "timestamp": "2023-01-01T12:02:15.000Z" },
+  // ... (additional data points)
+]
+*/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+A paths.txt file is kept in src/assets for reference.
